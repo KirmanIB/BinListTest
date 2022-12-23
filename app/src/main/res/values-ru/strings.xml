@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_button">Поиск</string>
+    <string name="hint_edit_text_bin_list">Введите первые цифры номера карты (БИН/ИИН)</string>
+    <string name="prepaid_bin_list">ПРЕДОПЛАТА</string>
+    <string name="brand_bin_list">БРЕНД</string>
+    <string name="type_bin_list">ТИП</string>
+    <string name="scheme_network_bin_list">СХЕМА / СЕТЬ</string>
+    <string name="bank_bin_list">БАНК</string>
+    <string name="card_number_bin_list">НОМЕР КАРТЫ</string>
+    <string name="length_bin_list">ДЛИНА</string>
+    <string name="luhn_bin_list">ЛИДЕР</string>
+    <string name="country_bin_list">СТРАНА</string>
+    <string name="clearAllBinList">Очистить</string>
+    <string name="history">История</string>
+    <string name="not_result">Нет результатов</string>
+    <string name="bin_list_yes">Да</string>
+    <string name="bin_list_no">Нет</string>
+    <string name="maps_bin_list_bank">На карте</string>
+</resources>

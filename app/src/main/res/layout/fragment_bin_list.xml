@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".BinListFragment">
+
+    <ImageView
+        android:id="@+id/searchButtonBinList"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/search_button"
+        android:src="@drawable/ic__search_bin_list"
+        android:layout_marginStart="10dp"
+        android:text="@string/search_button"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextBinList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextBinList"
+        app:layout_constraintTop_toTopOf="@+id/editTextBinList"
+        tools:src="@drawable/ic__search_bin_list" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextBinList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/hint_edit_text_bin_list"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="@color/text_color"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/includeBinList"
+        app:layout_constraintEnd_toStartOf="@+id/searchButtonBinList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/includeBinList"
+        layout="@layout/shablon_bin_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBinList" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotti_card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/includeBinList"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/card" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadBinList"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonHistory"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/load_bank" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/notFoundBinList"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonHistory"
+
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/not_found" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/status_bar"
+        android:backgroundTint="@color/status_bar"
+        android:text="@string/history"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
