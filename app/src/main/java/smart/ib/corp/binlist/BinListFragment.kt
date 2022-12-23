@@ -167,6 +167,7 @@ class BinListFragment : Fragment() {
                     R.string.bin_list_no
                 )
         } catch (e: Exception) {
+            //ghbdtn
         }
         textViewScheme.text = bankBinList.scheme
         textViewType.text = bankBinList.type
