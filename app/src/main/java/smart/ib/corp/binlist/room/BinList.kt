@@ -12,54 +12,54 @@ data class BinList(
     val bin_number: Int,
 
     @ColumnInfo(name = "city_bank")
-    val city: String? = null ?: "Not result",
+    val city: String,
 
     @ColumnInfo(name = "name_bank")
-    val nameBank: String? = null ?: "Not result",
+    val nameBank: String,
 
     @ColumnInfo(name = "phone_bank")
-    val phone: String? = null ?: "Not result",
+    val phone: String,
 
     @ColumnInfo(name = "url_bank")
-    val url: String? = null ?: "Not result",
+    val url: String,
 
     @ColumnInfo(name = "alpha2")
-    val alpha2: String? = null ?: "Not result",
+    val alpha2: String,
 
     @ColumnInfo(name = "currency")
-    val currency: String? = null ?: "Not result",
+    val currency: String,
 
     @ColumnInfo(name = "emoji")
-    val emoji: String? = null ?: "Not result",
+    val emoji: String,
 
     @ColumnInfo(name = "latitude")
-    val latitude: Int? = null,
+    val latitude: Int,
 
     @ColumnInfo(name = "longitude")
-    val longitude: Int? = null,
+    val longitude: Int,
 
     @ColumnInfo(name = "nameCountry")
-    val nameCountry: String? = null ?: "Not result",
+    val nameCountry: String,
 
     @ColumnInfo(name = "numeric")
-    val numeric: String? = null ?: "Not result",
+    val numeric: String,
 
     @ColumnInfo(name = "scheme")
-    val scheme: String? = null ?: "Not result",
+    val scheme: String,
 
     @ColumnInfo(name = "type")
-    val type: String? = null ?: "Not result",
+    val type: String,
 
     @ColumnInfo(name = "brand")
-    val brand: String? = null ?: "Not result",
+    val brand: String,
 
     @ColumnInfo(name = "prepaid")
-    val prepaid: Boolean? = null ?: false,
+    val prepaid: Boolean,
 
     @ColumnInfo(name = "card_number_length")
-    val length: Int? = null,
+    val length: Int,
 
     @ColumnInfo(name = "card_number_luhn")
-    val luhn: Boolean? = null ?: false,
+    val luhn: Boolean,
 
     )

@@ -1,4 +1,4 @@
-package smart.ib.corp.binlist
+package smart.ib.corp.binlist.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -13,12 +13,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
+import smart.ib.corp.binlist.R
 import smart.ib.corp.binlist.api.BinListItem
 import smart.ib.corp.binlist.app.App
 import smart.ib.corp.binlist.databinding.FragmentBinListBinding
 import smart.ib.corp.binlist.mvvm.BinListViewModel
 import smart.ib.corp.binlist.mvvm.State
 import smart.ib.corp.binlist.room.BinListDao
+
 
 class BinListFragment : Fragment() {
 
@@ -30,7 +32,7 @@ class BinListFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val binListDao: BinListDao = (requireActivity().application as App).db.binListDao()
-                return BinListViewModel(binListDao) as T
+                return BinListViewModel(binListDao, resources) as T
             }
         }
     }
@@ -133,50 +135,70 @@ class BinListFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun initBinList(bankBinList: BinListItem) = with(binding.includeBinList) {
         textViewBIN.text = binding.editTextBinList.text.toString()
-        textViewBank.text =
-            "${bankBinList.bank?.name} ${bankBinList.bank?.city}"
-        textViewUrlBank.text = bankBinList.bank?.url
-        textViewPhoneBank.text = bankBinList.bank?.phone
-        textViewMapBank.text = resources.getText(R.string.maps_bin_list_bank)
-        if (bankBinList.country?.latitude != null && bankBinList.country.longitude != null) {
-            val mapsLocation = ArrayList<Int>()
-            mapsLocation.add(bankBinList.country.latitude)
-            mapsLocation.add(bankBinList.country.longitude)
-            val bundle = Bundle().apply {
-                putIntegerArrayList(
-                    "maps_location",
-                    mapsLocation
-                )
+        bankBinList.apply {
+            if (bank == null){
+                textViewBank.text = resources.getText(R.string.not_result)
+                textViewUrlBank.text = resources.getText(R.string.not_result)
+                textViewPhoneBank.text = resources.getText(R.string.not_result)
             }
-            textViewMapBank.setOnClickListener {
-                findNavController().navigate(
-                    R.id.action_FirstFragment_to_mapsFragmentBinList,
-                    bundle
-                )
+            else {
+                textViewBank.text =
+                    "${bank.name} ${bank.city}"
+                textViewUrlBank.text = bank.url
+                textViewPhoneBank.text = bank.phone
             }
-        }
 
-        textViewBrand.text = bankBinList.brand
-        textViewCNLength.text = bankBinList.number?.length.toString()
-        textViewCountry.text =
-            "${bankBinList.country?.emoji} ${bankBinList.country?.name}, ${bankBinList.country?.currency}"
+            if (country == null) {
+                textViewCountry.text = resources.getText(R.string.not_result)
+                textViewMapBank.text = resources.getText(R.string.not_result)
+            }
+            else {
+                textViewMapBank.text = resources.getText(R.string.maps_bin_list_bank)
+                textViewCountry.text =
+                    "${country.emoji} ${country.name}, ${country.currency}"
+                val mapsLocation = ArrayList<Int>()
+                mapsLocation.add(country.latitude)
+                mapsLocation.add(country.longitude)
+                val bundle = Bundle().apply {
+                    putIntegerArrayList(
+                        "maps_location",
+                        mapsLocation
+                    )
+                }
+                textViewMapBank.setOnClickListener {
+                    findNavController().navigate(
+                        R.id.action_FirstFragment_to_mapsFragmentBinList,
+                        bundle
+                    )
+                }
+            }
 
-        try {
-            textViewPrepaid.text =
+            if (number == null) {
+                textViewCNLength.text = resources.getText(R.string.not_result)
+                textViewCNLuhn.text = resources.getText(R.string.not_result)
+            } else {
+                textViewCNLength.text = number.length.toString()
+                textViewCNLuhn.text =
+                    if (number.luhn) resources.getText(R.string.bin_list_yes) else resources.getText(
+                        R.string.bin_list_no
+                    )
+            }
+
+            if (brand == null) textViewBrand.text = resources.getText(R.string.not_result)
+            else textViewBrand.text = brand
+
+            if (prepaid == null) textViewPrepaid.text = resources.getText(R.string.not_result)
+            else textViewPrepaid.text =
                 if (bankBinList.prepaid!!) resources.getText(R.string.bin_list_yes) else resources.getText(
                     R.string.bin_list_no
                 )
-        } catch (e: Exception) {
-            //ghbdtn
+
+            if (scheme == null) textViewScheme.text = resources.getText(R.string.not_result)
+            else textViewScheme.text = scheme
+
+            if (type == null) textViewType.text = resources.getText(R.string.not_result)
+            else textViewType.text = type
         }
-        textViewScheme.text = bankBinList.scheme
-        textViewType.text = bankBinList.type
-        textViewCNLuhn.text =
-            if (bankBinList.number?.luhn!!) resources.getText(R.string.bin_list_yes) else resources.getText(
-                R.string.bin_list_no
-            )
-
-
     }
 
     //Метод обнуления значений при отсутствии результатов

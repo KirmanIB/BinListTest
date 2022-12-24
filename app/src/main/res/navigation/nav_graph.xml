@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="smart.ib.corp.binlist.BinListFragment"
+        android:name="smart.ib.corp.binlist.ui.BinListFragment"
         android:label="BinList"
         tools:layout="@layout/fragment_bin_list">
 
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="smart.ib.corp.binlist.HistoryBinListFragment"
+        android:name="smart.ib.corp.binlist.ui.HistoryBinListFragment"
         android:label="BinListHistory"
         tools:layout="@layout/fragment_history_bin_list">
 
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapsFragmentBinList"
-        android:name="smart.ib.corp.binlist.MapsFragmentBinList"
+        android:name="smart.ib.corp.binlist.ui.MapsFragmentBinList"
         android:label="Maps"
         tools:layout="@layout/fragment_maps_bin_list">
         <action

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search_button">Поиск</string>
-    <string name="hint_edit_text_bin_list">Введите первые цифры номера карты (БИН/ИИН)</string>
+    <string name="hint_edit_text_bin_list">Введите номер карты (БИН/ИИН)</string>
     <string name="prepaid_bin_list">ПРЕДОПЛАТА</string>
     <string name="brand_bin_list">БРЕНД</string>
     <string name="type_bin_list">ТИП</string>

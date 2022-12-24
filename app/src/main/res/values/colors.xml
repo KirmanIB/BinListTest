@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="status_bar">#034F81</color>
     <color name="text_color">#8A000000</color>
+    <color name="text_color_shablon_bin_list">#37474F</color>
+    <color name="color_app">#1C4542</color>
+
 
 </resources>

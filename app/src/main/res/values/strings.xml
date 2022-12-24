@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">BinList</string>
+    <string name="maps_api_key" translatable="false">AIzaSyDBr0_NrqFWuYSDWjVqmWaeIv23AM5MEUw</string>
+    <string name="hint_edit_text_bin_list">Enter card number (BIN/IIN)</string>
     <string name="search_button">Search</string>
-    <string name="hint_edit_text_bin_list">Enter the first digits of a card number (BIN/IIN)</string>
+
+    <!--Значения объектов для макета shablon_bin_list-->
     <string name="prepaid_bin_list">PREPAID</string>
     <string name="brand_bin_list">BRAND</string>
     <string name="type_bin_list">TYPE</string>
@@ -12,10 +15,13 @@
     <string name="length_bin_list">LENGTH</string>
     <string name="luhn_bin_list">LUHN</string>
     <string name="country_bin_list">COUNTRY</string>
+
     <string name="clearAllBinList">Clear</string>
     <string name="history">History</string>
+
     <string name="not_result">Not result</string>
     <string name="maps_bin_list_bank">For Maps</string>
     <string name="bin_list_yes">Yes</string>
     <string name="bin_list_no">No</string>
+
 </resources>

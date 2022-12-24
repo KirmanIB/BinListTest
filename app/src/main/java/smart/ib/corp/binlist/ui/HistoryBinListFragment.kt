@@ -1,4 +1,4 @@
-package smart.ib.corp.binlist
+package smart.ib.corp.binlist.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,7 +38,7 @@ class HistoryBinListFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 val binListDao: BinListDao = (requireActivity().application as App).db.binListDao()
-                return BinListViewModel(binListDao) as T
+                return BinListViewModel(binListDao, resources) as T
             }
         }
     }

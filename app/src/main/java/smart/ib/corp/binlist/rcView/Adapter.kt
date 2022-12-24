@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import smart.ib.corp.binlist.R
@@ -31,10 +30,10 @@ class Adapter(private val bankBinList: List<BinList>, private val resources: Res
             textViewUrlBank.text = bankBinList[position].url
             textViewPhoneBank.text = bankBinList[position].phone
             textViewMapBank.text = resources.getText(R.string.maps_bin_list_bank)
-            if (bankBinList[position].latitude != null && bankBinList[position].longitude != null) {
+            if (bankBinList[position].latitude != 0 && bankBinList[position].longitude != 0) {
                 val mapsLocation = ArrayList<Int>()
-                mapsLocation.add(bankBinList[position].latitude!!)
-                mapsLocation.add(bankBinList[position].longitude!!)
+                mapsLocation.add(bankBinList[position].latitude)
+                mapsLocation.add(bankBinList[position].longitude)
                 val bundle = Bundle().apply {
                     putIntegerArrayList(
                         "maps_location",
@@ -53,13 +52,13 @@ class Adapter(private val bankBinList: List<BinList>, private val resources: Res
             textViewCountry.text =
                 "${bankBinList[position].emoji} ${bankBinList[position].nameCountry}"
             textViewPrepaid.text =
-                if (bankBinList[position].prepaid!!) resources.getText(R.string.bin_list_yes) else resources.getText(
+                if (bankBinList[position].prepaid) resources.getText(R.string.bin_list_yes) else resources.getText(
                     R.string.bin_list_no
                 )
             textViewScheme.text = bankBinList[position].scheme
             textViewType.text = bankBinList[position].type
             textViewCNLuhn.text =
-                if (bankBinList[position].luhn!!) resources.getText(R.string.bin_list_yes) else resources.getText(
+                if (bankBinList[position].luhn) resources.getText(R.string.bin_list_yes) else resources.getText(
                     R.string.bin_list_no
                 )
         }
