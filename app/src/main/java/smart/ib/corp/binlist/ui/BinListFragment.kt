@@ -74,7 +74,7 @@ class BinListFragment : Fragment() {
             }
         }
 
-        //Пописка на stateFlow
+        //Подписка на stateFlow
         lifecycleScope.launchWhenStarted {
             viewModel.state.collect {
                 when (it) {

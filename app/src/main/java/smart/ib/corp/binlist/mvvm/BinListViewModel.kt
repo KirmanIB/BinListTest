@@ -14,7 +14,6 @@ import smart.ib.corp.binlist.api.MyRepositoryBinList
 import smart.ib.corp.binlist.room.BinList
 import smart.ib.corp.binlist.room.BinListDao
 
-
 //Класс архитектуры MVVM
 class BinListViewModel(private val binListDao: BinListDao, private val resources: Resources) : ViewModel() {
 
@@ -27,8 +26,6 @@ class BinListViewModel(private val binListDao: BinListDao, private val resources
         started = SharingStarted.WhileSubscribed(5000L),
         initialValue = emptyList()
     )
-
-
 
     //Метот добавления элементов в базу данных bin_list_data_base
     fun addButton(binList: BinListItem, binNumber: Int) = with(binList) {
